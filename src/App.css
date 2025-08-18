@@ -1,0 +1,31 @@
+#root {
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
+
+h2 {
+  padding-top: 20px;
+  font-size: 35px;
+} 
+
+.login{
+  width: 580px;
+  height: 400px;
+  background-image: linear-gradient(to right,rgb(9, 9, 38),rgb(10, 62, 10), rgb(26, 114, 26) ,rgb(9, 9, 38));
+  color: rgb(239, 239, 247);
+  border-radius: 20px;
+}
+.login-textbox{
+  background-color: antiquewhite;
+  color: black;
+  padding: 10px 90px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  border: none;
+}
+
+label{
+  font-size: 20px;
+}
