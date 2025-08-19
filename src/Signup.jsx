@@ -15,7 +15,7 @@ export default function Signup() {
       return;
     }
 
-    const url = "http://localhost:5000/signup";
+    const url = "https://to-do-app-backend-production-8720.up.railway.app/signup";
     const options = {
       method: "POST",
       headers: {
