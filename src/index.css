@@ -6,7 +6,9 @@
 
   color-scheme: light dark;
   color: black;
-  background-color:rgb(255, 255, 255);
+  background-image: url("./assets/todo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -30,6 +32,7 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: rgb(9, 9, 38);
+  color: white;
   margin-left: 5px;
   cursor: pointer;
   transition: border-color 0.25s;

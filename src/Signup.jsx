@@ -47,12 +47,12 @@ export default function Signup() {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="w-[580px] bg-gradient-to-r from-[#090926] via-[#0a3e0a] via-[#1a721a] to-[#090926] text-gray-100 rounded-2xl p-8 space-y-6">
+        <div className="w-[580px] bg-white text-blue-950 rounded-2xl p-8 space-y-6">
           <h2>SIGN UP</h2>
           <div className="flex items-center gap-4">
             <label className="w-24 font-semibold">Email: </label>
             <input
-              className="flex-1 bg-[antiquewhite] text-black px-4 py-2 rounded-lg border-none focus:outline-black"
+              className="flex-1 bg-[#fbe9d1] text-black px-4 py-2 rounded-lg border-none focus:outline-black"
               type="email"
               placeholder="email"
               {...register("email", { required: "Required" })}

@@ -12,8 +12,8 @@ h2 {
 .login{
   width: 580px;
   height: 400px;
-  background-image: linear-gradient(to right,rgb(9, 9, 38),rgb(10, 62, 10), rgb(26, 114, 26) ,rgb(9, 9, 38));
-  color: rgb(239, 239, 247);
+  background-color: white;
+  color: black;
   border-radius: 20px;
 }
 .login-textbox{
