@@ -18,7 +18,7 @@ export default function Todo() {
     alert("You must log in first!");
     return;
   }
-    fetch("https://to-do-app-backend-production-8720.up.railway.app/todo", {
+    fetch("https://to-do-app-backend-6vxg.onrender.com/todo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json","Authorization": `Bearer ${token}`
@@ -42,7 +42,7 @@ export default function Todo() {
 
   function getTask(){
     const token = localStorage.getItem("token");
-    fetch("https://to-do-app-backend-production-8720.up.railway.app/todo",{
+    fetch("https://to-do-app-backend-6vxg.onrender.com/todo",{
       method: "GET",
       headers: {
         "Content-Type": "application/json","Authorization": `Bearer ${token}`
@@ -65,7 +65,7 @@ export default function Todo() {
     console.log("Task object:", task);
     console.log("Task ID:", task.id);
 
-    fetch(`https://to-do-app-backend-production-8720.up.railway.app/todo/${task.id}`, {
+    fetch(`https://to-do-app-backend-6vxg.onrender.com/todo/${task.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ isCompleted: updatedStatus }),
@@ -84,7 +84,7 @@ export default function Todo() {
   }
 
   function deleteTask(id) {
-    fetch(`https://to-do-app-backend-production-8720.up.railway.app/todo/${id}`, {
+    fetch(`https://to-do-app-backend-6vxg.onrender.com/todo/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -15,7 +15,7 @@ export default function Signup() {
       return;
     }
 
-    const url = "https://to-do-app-backend-production-8720.up.railway.app/signup";
+    const url = "https://to-do-app-backend-6vxg.onrender.com/signup";
     const options = {
       method: "POST",
       headers: {
@@ -82,7 +82,8 @@ export default function Signup() {
           </div>
 
           <button type="submit">Sign Up</button>
-          <button onClick={() => navigate("Login")}>Login</button>
+          <p>Already have an account? <a href="/login" className="text-blue-500">Login</a></p>
+          {/* <button onClick={() => navigate("Login")}>Login</button> */}
         </div>
       </form>
     </>
