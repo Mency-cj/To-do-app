@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const {
@@ -62,8 +62,7 @@ export default function Signup() {
           <div className="flex items-center gap-4">
             <label className="w-24 font-semibold">Password: </label>
             <input
-            className="flex-1 bg-[antiquewhite] text-black px-4 py-2 rounded-lg border-none focus:outline-none"
-              
+              className="flex-1 bg-[antiquewhite] text-black px-4 py-2 rounded-lg border-none focus:outline-none"
               type="password"
               placeholder="Password"
               {...register("password", { required: "password is Required" })}
@@ -82,7 +81,12 @@ export default function Signup() {
           </div>
 
           <button type="submit">Sign Up</button>
-          <p>Already have an account? <a href="/login" className="text-blue-500">Login</a></p>
+          <p>
+            Already have an account?
+            <Link to="/login" className="text-blue-500">
+              Login
+            </Link>
+          </p>
           {/* <button onClick={() => navigate("Login")}>Login</button> */}
         </div>
       </form>

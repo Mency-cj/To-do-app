@@ -46,12 +46,12 @@ export default function Login() {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div class="login">
+        <div className="login">
           <h2>LOGIN</h2>
 
           <label>Email: </label>
           <input
-            class="login-textbox"
+            className="login-textbox"
             type="email"
             placeholder="Username"
             {...register("email", { required: "Required" })}
@@ -59,7 +59,7 @@ export default function Login() {
           <p>{errors.email ? errors.email.message : ""}</p>
           <label>Password: </label>
           <input
-            class="login-textbox"
+            className="login-textbox"
             type="password"
             placeholder="Password"
             {...register("password", { required: "password is Required" })}
