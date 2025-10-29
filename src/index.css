@@ -6,10 +6,9 @@
 
   color-scheme: light dark;
   color: black;
-  background-image: url("./assets/todo.jpg");
-  background-repeat: no-repeat;
+  /* background-image: url("./assets/ToDo bg.jpg"); */
   background-size: cover;
-
+  background-color: #f9fcf7;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -18,42 +17,8 @@
 
 
 body {
+  margin-top: 80px;
   display: flex;
   
 }
 
-
-
-button {
-  border-radius: 9px;
-  border: none;
-  padding:8px 15px;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: rgb(9, 9, 38);
-  color: white;
-  margin-left: 5px;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  button:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}

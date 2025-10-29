@@ -14,14 +14,15 @@ export default function Todo() {
     reset();
 
     const token = localStorage.getItem("token");
-      if (!token) {
-    alert("You must log in first!");
-    return;
-  }
+    if (!token) {
+      alert("You must log in first!");
+      return;
+    }
     fetch("https://to-do-app-backend-6vxg.onrender.com/todo", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json","Authorization": `Bearer ${token}`
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(taskObj),
     })
@@ -40,13 +41,14 @@ export default function Todo() {
     getTask();
   }, []);
 
-  function getTask(){
+  function getTask() {
     const token = localStorage.getItem("token");
-    fetch("https://to-do-app-backend-6vxg.onrender.com/todo",{
+    fetch("https://to-do-app-backend-6vxg.onrender.com/todo", {
       method: "GET",
       headers: {
-        "Content-Type": "application/json","Authorization": `Bearer ${token}`
-      }
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -106,62 +108,67 @@ export default function Todo() {
 
   return (
     <>
-      <section className="bg-[#242424] text-white rounded-2xl w-[680px] h-auto py-5 mx-auto text-center">
+      <section className="bg-[#242424] text-white rounded-2xl w-full  lg:min-w-[680px] h-auto py-6 px-4 sm:px-8 mx-auto text-center shadow-[0_0_15px_2px_#343434cc]">
+        
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <h2 className="pb-5 text-[35px]">To-Do List</h2>
+            <h2 className="pb-5 text-[28px] sm:text-[35px] font-bold">
+              To-Do List
+            </h2>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <input
+                type="text"
+                placeholder="Enter a task"
+                {...register("Task", { required: "Name is Required" })}
+                className="w-full sm:w-auto flex-1 px-6 py-2 bg-[aliceblue] text-black rounded-lg border-none text-center focus:outline-green-700"
+              />
 
-            <input
-              type="text"
-              placeholder="Enter a task"
-              {...register("Task", { required: "Name is Required" })}
-              className="px-8 py-2 bg-[aliceblue] text-black rounded-lg border-none mr-2 text-center"
-            />
-
-            <button className="bg-green-700 text-white px-5 py-2 rounded-lg hover:bg-green-800 transition">
-              Add
-            </button>
-
-            <div className="flex justify-between px-[60px] pt-5 pb-[30px]">
-              <p className="bg-[rgb(29,123,92)] px-8 py-2 rounded-xl">
+              <button className="bg-green-700 text-white px-5 py-2 rounded-lg hover:bg-green-800 transition sm:w-[100px] lg:w-[150px]">
+                Add
+              </button>
+            </div>
+            <div className="flex flex-col px-[20px] lg:px-[60px] sm:flex-row justify-between items-center gap-3 sm:gap-4 mt-6">
+              <p className="bg-[rgb(29,123,92)] px-6 py-2 rounded-xl w-full sm:w-auto">
                 Total Task: {totalTask}
               </p>
-              <p className="bg-[rgb(29,123,92)] px-8 py-2 rounded-xl">
+              <p className="bg-[rgb(29,123,92)] px-6 py-2 rounded-xl w-full sm:w-auto">
                 Completed Task: {updatedTask}
               </p>
-              <p className="bg-[rgb(29,123,92)] px-8 py-2 rounded-xl">
+              <p className="bg-[rgb(29,123,92)] px-6 py-2 rounded-xl w-full sm:w-auto">
                 Remaining Task: {remainingTask}
               </p>
             </div>
 
-            <h4 className="text-lg font-semibold">Added Tasks:</h4>
+            <h4 className="text-lg font-semibold mt-8">Added Tasks:</h4>
 
-            <ul className="list-none">
+            <ul className="list-none mt-4 space-y-3">
               {taskList.map((task, index) => (
                 <li
                   key={index}
                   className={`${task.isCompleted ? "line-through" : ""}`}
                 >
                   <div
-                    className={`flex items-center justify-between rounded-lg mx-15 my-4 px-4 py-2 ${
+                    className={`flex flex-col sm:flex-row sm:items-center justify-between rounded-lg my-2 px-4 py-3 gap-2 sm:gap-4 transition ${
                       task.isCompleted
                         ? "bg-[rgb(95,98,95)]"
                         : "bg-[rgb(224,219,219)] text-black"
                     }`}
                   >
-                    <input
-                      type="checkbox"
-                      checked={task.isCompleted}
-                      onChange={() => taskCompletion(index)}
-                      className="mr-2 accent-green-600 w-3 h-3"
-                    />
-                    <span>{task.task}</span>
-                          <MdDelete
-                      onClick={() => deleteTask(task.id)}
-                      className="cursor-pointer  text-red-500 hover:text-red-700" size={22}
-                    />
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        checked={task.isCompleted}
+                        onChange={() => taskCompletion(index)}
+                        className="mr-2 accent-green-600 w-3 h-3"
+                      />
+                      <span>{task.task}</span>
                     </div>
-              
+                    <MdDelete
+                      onClick={() => deleteTask(task.id)}
+                      className="cursor-pointer text-red-500 hover:text-red-700 self-end sm:self-auto"
+                      size={22}
+                    />
+                  </div>
                 </li>
               ))}
             </ul>
